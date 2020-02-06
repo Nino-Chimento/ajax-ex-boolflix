@@ -12,6 +12,7 @@ $(document).ready(function () {
       },
       success : function (data) {
         var listaFilms = data.results;
+        stampaFilms(listaFilms)
       },
       error : function (request,state,error) {
         alert("errore e"+errore)
@@ -19,3 +20,13 @@ $(document).ready(function () {
     });
   });
 });
+// funzione stampa film
+function stampaFilms(array) {
+  for (var i = 0; i < array.length; i++) {
+    var source = $("#entry-template").html();
+    var template = Handlebars.compile(source);
+    var context = array[i];
+    var html = template(context);
+    $(".wrap-films").append(html);
+  }
+}

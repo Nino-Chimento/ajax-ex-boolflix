@@ -10,6 +10,16 @@
   <body>
     <input type="text" name="" value="" placeholder="Cerca film">
     <button type="button" name="button">Cerca</button>
+    <div class="wrap-films"></div>
+    <script id="entry-template" type="text/x-handlebars-template">
+      <div class="entry">
+        <h1>{{title}}</h1>
+        <h2>{{original_title}}</h2>
+        <h3>{{original_language}}</h3>
+        <h3>{{vote_average}}</h3>
+        <p>{{overview}}</p>
+      </div>
+    </script>
     <script src="script.js" charset="utf-8"></script>
   </body>
 </html>
