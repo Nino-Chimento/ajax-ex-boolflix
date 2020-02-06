@@ -12,6 +12,7 @@ $(document).ready(function () {
 
 // funzione stampa film
 function stampaFilms(array) {
+  $(".wrap-films").html("");
   for (var i = 0; i < array.length; i++) {
     var source = $("#entry-template").html();
     var template = Handlebars.compile(source);
@@ -43,4 +44,3 @@ function search() {
     }
   });
 }
-  
