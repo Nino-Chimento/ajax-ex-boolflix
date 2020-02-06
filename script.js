@@ -2,6 +2,7 @@
 $(document).ready(function () {
   $("button").click(function () {
     var ricerca = $("input").val();
+    $("input").val("")
     if (ricerca.length == 0) {
       alert("inserisci una parola chiave grazie")
     }
