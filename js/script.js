@@ -40,10 +40,19 @@ function search() {
       if (listaFilms.length == 0) {
         alert("mi spiace la ricerca non ha prodotto risultati")
       }
+      listaFilms.sort(confronta)
       stampaFilms(listaFilms)
     },
     error : function (request,state,error) {
       alert("errore e"+errore)
     }
   });
+}
+// funzione che ordina
+function confronta(a,b) {
+if (a.title < b.title) { return 1; }
+else {
+if (a.title > b.title) { return -1; }
+else { return 0; }
+}
 }
