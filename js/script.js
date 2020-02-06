@@ -11,12 +11,12 @@ $(document).ready(function () {
 });
 
 // funzione stampa film
-function stampaFilms(array) {
+function stampaFilms(movies) {
   $(".wrap-films").html("");
-  for (var i = 0; i < array.length; i++) {
+  for (var i = 0; i < movies.length; i++) {
     var source = $("#entry-template").html();
     var template = Handlebars.compile(source);
-    var context = array[i];
+    var context = movies[i];
     var html = template(context);
     $(".wrap-films").append(html);
   }
