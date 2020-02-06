@@ -16,11 +16,12 @@
 }
 .menu h2 {
   color: red;
-  font-size: 1.5em;
+  font-size: 1.9em;
 }
 .wrap-films {
   display:flex;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
 p {
   width: 50%;
