@@ -1,13 +1,13 @@
 // 5ae01722ee057b2fdbbf926a615150da
 $(document).ready(function () {
   $("button").click(function () {
-    $(".wrap-films").html("");
     search()
+    $(".wrap-films").html("");
   });
   $("input").keypress(function () {
     if(event.which == 13 || event.keyCode == 13) {
-      $(".wrap-films").html("");
       search();
+      $(".wrap-films").html("");
     }
   });
 });
@@ -34,7 +34,6 @@ function stampaFilms(movies) {
       titolo = " ";
     }
     var lingua = movies[i].original_language;
-    console.log(lingua);
     if (lingua != "it" && lingua != "en" && lingua != "fr") {
       lingua = "";
     }
@@ -64,7 +63,6 @@ function search() {
   var urlTv = "https://api.themoviedb.org/3/search/tv";
   chiamataAjax(urlFilms,ricerca);
   chiamataAjax(urlTv,ricerca)
-
 }
 function chiamataAjax(url,query) {
   $.ajax({
