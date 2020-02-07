@@ -1,10 +1,12 @@
 // 5ae01722ee057b2fdbbf926a615150da
 $(document).ready(function () {
   $("button").click(function () {
+    $(".wrap-films").html("");
     search()
   });
   $("input").keypress(function () {
     if(event.which == 13 || event.keyCode == 13) {
+      $(".wrap-films").html("");
       search();
     }
   });
@@ -25,7 +27,6 @@ function printVote(vote)  {
 }
 // funzione stampa film
 function stampaFilms(movies) {
-  $(".wrap-films").html("");
   for (var i = 0; i < movies.length; i++) {
     var stelle = Math.round(movies[i].vote_average / 2)
     var titolo =  movies[i].original_title;
