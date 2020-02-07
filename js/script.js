@@ -29,8 +29,9 @@ function stampaFilms(movies) {
   for (var i = 0; i < movies.length; i++) {
     var stelle = Math.round(movies[i].vote_average / 2)
     var titolo =  movies[i].original_title;
-    if (titolo == movies[i].title) {
+    if (titolo.toLowerCase() == movies[i].title.toLowerCase()) {
       titolo = " ";
+      console.log("N");
     }
     var source = $("#entry-template").html();
     var template = Handlebars.compile(source);
