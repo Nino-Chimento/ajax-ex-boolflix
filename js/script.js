@@ -68,9 +68,6 @@ function chiamataAjax(url,query) {
     },
     success : function (data) {
       var listaFilms = data.results;
-      if (listaFilms.length == 0) {
-        alert("mi spiace la ricerca non ha prodotto risultati")
-      }
       listaFilms.sort(confronta)
       stampaFilms(listaFilms)
     },
