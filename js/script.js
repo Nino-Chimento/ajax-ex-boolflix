@@ -9,14 +9,19 @@ $(document).ready(function () {
     }
   });
 });
+// stampo le stelle
 function printVote(vote)  {
- for (var i = 0; i < 5; i++) {
-   if ( i < numeroUtente) { //contatore i
-     $("body).append(<li></li>).addClass('red');
+   somma  ="";
+ for (var i = 0; i <5; i++) {
+
+   if ( i < vote) { //contatore i
+     var risultato = '<i class="fas fa-star"></i>';
    } else {
-     $("body).append(<li></li>).addClass('green');
+     var risultato = '<i class="far fa-star"></i>';
    }
+   somma = somma + risultato;
   }
+  return somma;
 }
 // funzione stampa film
 function stampaFilms(movies) {
@@ -31,7 +36,7 @@ function stampaFilms(movies) {
       original_title : movies[i].original_title,
       original_language : movies[i].original_language,
       vote_average : movies[i].vote_average,
-      star :   "<i class="fas fa-star"></i>"
+      star :   printVote(stelle),
       poster_path : movies[i].poster_path
     } ;
     var html = template(context);
