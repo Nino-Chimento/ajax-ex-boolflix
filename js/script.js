@@ -30,9 +30,13 @@ function stampaFilms(movies) {
   for (var i = 0; i < movies.length; i++) {
     var stelle = Math.round(movies[i].vote_average / 2)
     var titolo =  movies[i].original_title;
-    if (titolo.toLowerCase() == movies[i].title.toLowerCase()) {
+    if (titolo == movies[i]) {
       titolo = " ";
-      console.log("N");
+    }
+    var lingua = movies[i].original_language;
+    console.log(lingua);
+    if (lingua != "it" && lingua != "en" && lingua != "fr") {
+      lingua = "";
     }
     var source = $("#entry-template").html();
     var template = Handlebars.compile(source);
@@ -42,7 +46,7 @@ function stampaFilms(movies) {
       original_language : movies[i].original_language,
       vote_average : movies[i].vote_average,
       star :   printVote(stelle),
-      nazione : movies[i].original_language,
+      nazione : lingua ,
       poster_path : movies[i].poster_path,
     } ;
     var html = template(context);
@@ -77,7 +81,7 @@ function chiamataAjax(url,query) {
       stampaFilms(listaFilms)
     },
     error : function (request,state,error) {
-      alert("errore e"+errore)
+      alert("errore e"+error)
     }
   });
 }
