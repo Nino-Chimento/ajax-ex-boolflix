@@ -30,7 +30,7 @@ function stampaFilms(movies) {
   for (var i = 0; i < movies.length; i++) {
     var stelle = Math.round(movies[i].vote_average / 2)
     var titolo =  movies[i].original_title;
-    if (titolo == movies[i]) {
+    if (titolo == movies[i].title) {
       titolo = " ";
     }
     var lingua = movies[i].original_language;
