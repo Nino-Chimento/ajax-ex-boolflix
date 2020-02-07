@@ -51,6 +51,7 @@ function search() {
     alert("inserisci una parola chiave grazie")
   }
   $.ajax({
+    // https://api.themoviedb.org/3/search/tv
     url : "https://api.themoviedb.org/3/search/movie",
     method : "GET",
     data : {
@@ -65,6 +66,27 @@ function search() {
       }
       listaFilms.sort(confronta)
       stampaFilms(listaFilms)
+    },
+    error : function (request,state,error) {
+      alert("errore e"+errore)
+    }
+  });
+  $.ajax({
+    // https://api.themoviedb.org/3/search/tv
+    url : "https://api.themoviedb.org/3/search/tv",
+    method : "GET",
+    data : {
+      api_key :"5ae01722ee057b2fdbbf926a615150da",
+      query : ricerca,
+      language:"it-IT"
+    },
+    success : function (data) {
+      var listaTv = data.results;
+      if (listaTv.length == 0) {
+        alert("mi spiace la ricerca non ha prodotto risultati")
+      }
+      listaTv.sort(confronta)
+      stampaFilms(listaTv)
     },
     error : function (request,state,error) {
       alert("errore e"+errore)
