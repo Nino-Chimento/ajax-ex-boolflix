@@ -28,12 +28,15 @@ function stampaFilms(movies) {
   $(".wrap-films").html("");
   for (var i = 0; i < movies.length; i++) {
     var stelle = Math.round(movies[i].vote_average / 2)
-    console.log(stelle);
+    var titolo =  movies[i].original_title;
+    if (titolo == movies[i].title) {
+      titolo = " ";
+    }
     var source = $("#entry-template").html();
     var template = Handlebars.compile(source);
     var context = {
       title : movies[i].title,
-      original_title : movies[i].original_title,
+      original_title :titolo,
       original_language : movies[i].original_language,
       vote_average : movies[i].vote_average,
       star :   printVote(stelle),
