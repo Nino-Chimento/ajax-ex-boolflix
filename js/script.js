@@ -48,6 +48,7 @@ function stampaFilms(movies) {
       star :   printVote(stelle),
       nazione : lingua ,
       poster_path : movies[i].poster_path,
+      original_name : movies[i].original_name,
     } ;
     var html = template(context);
     $(".wrap-films").append(html);
