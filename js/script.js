@@ -40,6 +40,8 @@ function search() {
       if (listaFilms.length == 0) {
         alert("mi spiace la ricerca non ha prodotto risultati")
       }
+      var stelle = Math.round(listaFilms[1].vote_average)
+      console.log(stelle);
       listaFilms.sort(confronta)
       stampaFilms(listaFilms)
     },
