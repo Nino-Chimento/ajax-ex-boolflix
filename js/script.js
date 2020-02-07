@@ -14,11 +14,17 @@ $(document).ready(function () {
 function stampaFilms(movies) {
   $(".wrap-films").html("");
   for (var i = 0; i < movies.length; i++) {
-    var stelle = Math.round(movies[i].vote_average / 2) 
+    var stelle = Math.round(movies[i].vote_average / 2)
     console.log(stelle);
     var source = $("#entry-template").html();
     var template = Handlebars.compile(source);
-    var context = movies[i];
+    var context = {
+      title : movies[i].title,
+      original_title : movies[i].original_title,
+      original_language : movies[i].original_language,
+      vote_average : movies[i].vote_average,
+      poster_path : movies[i].poster_path
+    } ;
     var html = template(context);
     $(".wrap-films").append(html);
   }
