@@ -37,7 +37,8 @@ function stampaFilms(movies) {
       original_language : movies[i].original_language,
       vote_average : movies[i].vote_average,
       star :   printVote(stelle),
-      poster_path : movies[i].poster_path
+      nazione : movies[i].original_language,
+      poster_path : movies[i].poster_path,
     } ;
     var html = template(context);
     $(".wrap-films").append(html);
