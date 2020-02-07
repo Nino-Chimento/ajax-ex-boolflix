@@ -14,6 +14,8 @@ $(document).ready(function () {
 function stampaFilms(movies) {
   $(".wrap-films").html("");
   for (var i = 0; i < movies.length; i++) {
+    var stelle = Math.round(movies[i].vote_average / 2) 
+    console.log(stelle);
     var source = $("#entry-template").html();
     var template = Handlebars.compile(source);
     var context = movies[i];
@@ -40,8 +42,6 @@ function search() {
       if (listaFilms.length == 0) {
         alert("mi spiace la ricerca non ha prodotto risultati")
       }
-      var stelle = Math.round(listaFilms[1].vote_average)
-      console.log(stelle);
       listaFilms.sort(confronta)
       stampaFilms(listaFilms)
     },
@@ -52,9 +52,9 @@ function search() {
 }
 // funzione che ordina
 function confronta(a,b) {
-if (a.title < b.title) { return 1; }
-else {
-if (a.title > b.title) { return -1; }
-else { return 0; }
-}
+  if (a.title < b.title) { return 1; }
+  else {
+    if (a.title > b.title) { return -1; }
+    else { return 0; }
+  }
 }
