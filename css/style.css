@@ -39,7 +39,6 @@ p {
 .no-results {
   text-align: center;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   background-color: red;
+  justify-content: space-around;
 }
