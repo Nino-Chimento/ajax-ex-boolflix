@@ -3,11 +3,13 @@ $(document).ready(function () {
   $("button").click(function () {
     search()
     $(".wrap-films").html("");
+    $(".no-results").html("");
   });
   $("input").keypress(function () {
     if(event.which == 13 || event.keyCode == 13) {
       search();
       $(".wrap-films").html("");
+      $(".no-results").html("");
     }
   });
 });
@@ -61,10 +63,12 @@ function search() {
   }
   var urlFilms = "https://api.themoviedb.org/3/search/movie";
   var urlTv = "https://api.themoviedb.org/3/search/tv";
-  chiamataAjax(urlFilms,ricerca);
-  chiamataAjax(urlTv,ricerca)
+  var films = "films";
+  var tv = "serie tv"
+  chiamataAjax(urlFilms,ricerca,films);
+  chiamataAjax(urlTv,ricerca,tv)
 }
-function chiamataAjax(url,query) {
+function chiamataAjax(url,query,genere) {
   $.ajax({
     // https://api.themoviedb.org/3/search/tv
     url : url,
@@ -76,6 +80,16 @@ function chiamataAjax(url,query) {
     },
     success : function (data) {
       var listaFilms = data.results;
+      if (data.results == 0) {
+        var source = $("#no-results-template").html();
+        var template = Handlebars.compile(source);
+        var context = {
+          films : "Non ci sono opzioni per " + genere
+        }
+        var html = template(context);
+        $(".no-results").append(html);
+
+      }
       listaFilms.sort(confronta)
       stampaFilms(listaFilms)
     },

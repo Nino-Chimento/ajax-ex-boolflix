@@ -16,7 +16,7 @@
         <button type="button" name="button">Cerca</button>
       </div>
     </div>
-
+    <div class="no-results"></div>
 
     <div class="wrap-films"></div>
     <script id="entry-template" type="text/x-handlebars-template">
@@ -28,6 +28,9 @@
         <h4> Media voto :{{vote_average}} {{{star}}}
         </h4>
       </div>
+    </script>
+    <script id="no-results-template" type="text/x-handlebars-template">
+      <h2>{{films}}</h2>
     </script>
     <script src="js/script.js" charset="utf-8"></script>
   </body>
