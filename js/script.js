@@ -13,8 +13,8 @@ $(document).ready(function () {
     }
   });
   $(document).on("click",".entry",function () {
-    var titolo = $(this).attr("data");
-    console.log(titolo);
+    var id = $(this).attr("data");
+    console.log(id);
   })
 });
 // stampo le stelle
@@ -46,7 +46,7 @@ function stampaFilms(movies) {
     var source = $("#entry-template").html();
     var template = Handlebars.compile(source);
     var context = {
-      data :movies[i].title,
+      data :movies[i].id,
       title : movies[i].title,
       original_title :titolo,
       original_language : movies[i].original_language,
