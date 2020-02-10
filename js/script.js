@@ -14,6 +14,7 @@ $(document).ready(function () {
   });
   $(document).on("click",".entry",function () {
     var id = $(this).attr("data");
+    var box = $(this);
     $.ajax({
       // https://api.themoviedb.org/3/search/tv
       url : "https://api.themoviedb.org/3/movie/"+id+"/credits",
@@ -24,6 +25,13 @@ $(document).ready(function () {
       success : function (data) {
         var attori = data.cast
         for (var i = 0; i < 5; i++) {
+          var source = $("#actors-template").html();
+          var template = Handlebars.compile(source);
+          var context = {
+            actors : data.cast[i].character,
+          }
+          var html = template(context);
+          box.append(html)
           console.log(data.cast[i].character);
         }
       },

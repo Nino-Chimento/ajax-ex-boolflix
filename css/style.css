@@ -68,7 +68,9 @@
   transform: scale(1.2);
   cursor: pointer;
 }
-
+.entry ul {
+  list-style: none;
+}
 
 /*
 {
