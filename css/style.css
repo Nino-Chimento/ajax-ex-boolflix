@@ -71,7 +71,12 @@
 .entry ul {
   list-style: none;
 }
-
+.copertina{
+  background-image: url(../img/no-cover.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 /*
 {
             "popularity": 82.25,
