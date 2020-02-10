@@ -43,6 +43,14 @@
   color: white;
   text-align: center;
   position: relative;
+  font-size: 0.7em;
+}
+.entry h1,h2,h3,h4 {
+  padding: 5px;
+}
+ p {
+  overflow: hidden;
+  height: 25%;
 }
 .entry h3 img {
   width: 40px;
@@ -55,4 +63,7 @@
 }
 .entry:hover .copertina {
   display: none;
+}
+.entry:hover{
+  transform: scale(1.2);
 }
