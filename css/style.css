@@ -77,6 +77,18 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+.entry a {
+  font-size: 1.2em;
+  text-decoration: none;
+  vertical-align: middle;
+  line-height: 30px;
+  display: inline-block;
+  margin: 10px 0 ;
+  height: 30px;
+  width: 80px;
+  border-radius: 100%;
+  background-color: lightblue;
+}
 /*
 {
             "popularity": 82.25,
