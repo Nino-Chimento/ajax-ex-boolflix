@@ -12,6 +12,9 @@ $(document).ready(function () {
       $(".no-results").html("");
     }
   });
+  $(document).on("click",".entry",function () {
+    console.log("ni");
+  })
 });
 // stampo le stelle
 function printVote(vote)  {
