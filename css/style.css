@@ -112,8 +112,8 @@ display: none;
 }
  .fa-times {
   font-size: 1.5em;
-  position: absolute;
-  right: 0;
+  position: fixed;
+  right: 70px;
   cursor: pointer;
   margin: 5px;
 }
