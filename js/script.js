@@ -24,6 +24,8 @@ $(document).ready(function () {
       },
       success : function (data) {
         var attori = data.cast
+        box.find("p").toggle();
+        box.find("ul").remove();
         for (var i = 0; i < 5; i++) {
           var source = $("#actors-template").html();
           var template = Handlebars.compile(source);
