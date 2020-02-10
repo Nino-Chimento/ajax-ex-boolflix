@@ -17,13 +17,6 @@ $(document).ready(function () {
         var html = template(context);
         $("select").append(html)
       }
-      var source = $("#descrizione-template").html();
-      var template = Handlebars.compile(source);
-      var context = {
-        overview : testo,
-      }
-      var html = template(context);
-      $(".info").prepend(html)
     },
     error : function (request,state,error) {
       alert("errore e"+error)
