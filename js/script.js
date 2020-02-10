@@ -1,5 +1,37 @@
 // 5ae01722ee057b2fdbbf926a615150da
 $(document).ready(function () {
+  $.ajax({
+    // https://api.themoviedb.org/3/search/tv
+    url : "https://api.themoviedb.org/3/genre/movie/list?language=en-US",
+    method : "GET",
+    data : {
+      api_key :"5ae01722ee057b2fdbbf926a615150da",
+    },
+    success : function (data) {
+      var genere = data.genres
+      var source = $("#genere-template").html();
+      var template = Handlebars.compile(source);
+      for (var i = 0; i < genere.length; i++) {
+        console.log(genere[i]);
+        var context = {
+          id : genere[i].id,
+          name : genere[i].name
+        }
+        var html = template(context);
+        $("select").append(html)
+      }
+      var source = $("#descrizione-template").html();
+      var template = Handlebars.compile(source);
+      var context = {
+        overview : testo,
+      }
+      var html = template(context);
+      $(".info").prepend(html)
+    },
+    error : function (request,state,error) {
+      alert("errore e"+error)
+    }
+  });
   $(".info").hide();
   $("button").click(function () {
     search()

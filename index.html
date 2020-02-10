@@ -20,6 +20,8 @@
     <div class="info">
       <i class="fas fa-times"></i>
     </div>
+    <select class="" name="">
+    </select>
     <div class="wrap-films"></div>
     <script id="entry-template" type="text/x-handlebars-template">
       <div class="entry" data = "{{data}}" genere = "{{genere}}">
@@ -36,18 +38,19 @@
       <h2>{{films}}</h2>
     </script>
     <script id="actors-template" type="text/x-handlebars-template">
-
-
-        <ul>
-          <li>
-            <img src={{image}} alt="">
-            <h4>{{actors}}</h4>
-          </li>
-        </ul>
-      </script>
-      <script id="descrizione-template" type="text/x-handlebars-template">
-        <p>{{overview}}</p>
-      </script>
-      <script src="js/script.js" charset="utf-8"></script>
-    </body>
-    </html>
+      <ul>
+        <li>
+          <img src={{image}} alt="">
+          <h4>{{actors}}</h4>
+        </li>
+      </ul>
+    </script>
+    <script id="genere-template" type="text/x-handlebars-template">
+      <option value="{{id}}">{{name}}</option>
+    </script>
+    <script id="descrizione-template" type="text/x-handlebars-template">
+      <p>{{overview}}</p>
+    </script>
+    <script src="js/script.js" charset="utf-8"></script>
+  </body>
+  </html>
