@@ -12,7 +12,7 @@ $(document).ready(function () {
       $(".no-results").html("");
     }
   });
-  $(document).on("click",".entry",function () {
+  $(document).on("click",".entry a",function () {
     var id = $(this).attr("data");
     var box = $(this);
     $.ajax({
