@@ -1,5 +1,6 @@
 // 5ae01722ee057b2fdbbf926a615150da
 $(document).ready(function () {
+  $(".info").hide();
   $("button").click(function () {
     search()
     $(".wrap-films").html("");
