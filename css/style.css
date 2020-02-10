@@ -98,7 +98,24 @@
   height: 600px;
   overflow-y: scroll;
   background-color: red;
+  display: flex;
+  flex-wrap: wrap;
 }
+.info ul {
+  list-style: none;
+}
+.info li {
+  margin: 10px;
+}
+ .fa-times {
+  color: white;
+  font-size: 1.5em;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  margin: 5px;
+}
+
 /*
 {
             "popularity": 82.25,

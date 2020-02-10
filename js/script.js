@@ -32,9 +32,9 @@ $(document).ready(function () {
             actors : attori[i].name,
             image : "https://image.tmdb.org/t/p/w185" +  attori[i].profile_path,
           }
+          var html = template(context);
+          $(".info").append(html)
         }
-        var html = template(context);
-        $("body").append(html)
 
       },
       error : function (request,state,error) {

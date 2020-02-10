@@ -17,7 +17,9 @@
       </div>
     </div>
     <div class="no-results"></div>
-
+    <div class="info">
+      <i class="fas fa-times"></i>
+    </div>
     <div class="wrap-films"></div>
     <script id="entry-template" type="text/x-handlebars-template">
       <div class="entry" data = "{{data}}">
@@ -34,17 +36,15 @@
       <h2>{{films}}</h2>
     </script>
     <script id="actors-template" type="text/x-handlebars-template">
-      <div class="info">
+
         <p>{{overview}}</p>
         <ul>
           <li>
             <img src={{image}} alt="">
             <h4>{{actors}}</h4>
-
           </li>
         </ul>
-      </div>
-    </script>
-    <script src="js/script.js" charset="utf-8"></script>
-  </body>
-  </html>
+      </script>
+      <script src="js/script.js" charset="utf-8"></script>
+    </body>
+    </html>
