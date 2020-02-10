@@ -48,7 +48,7 @@ function stampaFilms(movies) {
       vote_average : movies[i].vote_average,
       star :   printVote(stelle),
       nazione : lingua ,
-      poster_path : movies[i].poster_path,
+      poster_path :"https://image.tmdb.org/t/p/w185" + movies[i].poster_path,
       original_name : movies[i].original_name,
       overview : movies[i].overview,
     } ;
