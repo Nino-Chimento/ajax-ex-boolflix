@@ -15,6 +15,7 @@ $(document).ready(function () {
   });
   $(document).on("click",".entry a",function () {
     var id = $(this).parents(".entry").attr("data");
+    var testo = $(this).siblings("p").text();
     $(".info").toggle().show();
     $.ajax({
       // https://api.themoviedb.org/3/search/tv
@@ -36,7 +37,13 @@ $(document).ready(function () {
           var html = template(context);
           $(".info").append(html)
         }
-
+        var source = $("#descrizione-template").html();
+        var template = Handlebars.compile(source);
+        var context = {
+          overview : testo,
+        }
+        var html = template(context);
+        $(".info").prepend(html)
       },
       error : function (request,state,error) {
         alert("errore e"+error)
@@ -46,6 +53,7 @@ $(document).ready(function () {
   $(".fa-times").click(function () {
     $(".info").hide();
     $(".info ul").remove();
+    $(".info p").remove();
   });
 });
 // stampo le stelle

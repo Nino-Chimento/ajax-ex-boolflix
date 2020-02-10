@@ -89,6 +89,9 @@
   border-radius: 100%;
   background-color: lightblue;
 }
+.entry p {
+display: none;
+}
 .info {
   position: absolute;
   z-index: 3;
