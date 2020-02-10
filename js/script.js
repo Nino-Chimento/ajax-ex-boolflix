@@ -1,7 +1,5 @@
-// 5ae01722ee057b2fdbbf926a615150da
 $(document).ready(function () {
   $.ajax({
-    // https://api.themoviedb.org/3/search/tv
     url : "https://api.themoviedb.org/3/genre/movie/list?language=en-US",
     method : "GET",
     data : {
@@ -12,7 +10,6 @@ $(document).ready(function () {
       var source = $("#genere-template").html();
       var template = Handlebars.compile(source);
       for (var i = 0; i < genere.length; i++) {
-        console.log(genere[i]);
         var context = {
           id : genere[i].id,
           name : genere[i].name
@@ -31,6 +28,18 @@ $(document).ready(function () {
     error : function (request,state,error) {
       alert("errore e"+error)
     }
+  });
+  $("select").change(function () {
+    var genere = $("select").val();
+    $(".entry").each(function () {
+      var attributoGenere = $(this).attr("genere");
+      if (!attributoGenere.includes(genere)) {
+        $(this).hide();
+      }
+      else {
+        $(this).show();
+      }
+    });
   });
   $(".info").hide();
   $("button").click(function () {
@@ -61,7 +70,6 @@ $(document).ready(function () {
         var source = $("#actors-template").html();
         var template = Handlebars.compile(source);
         for (var i = 0; i < attori.length; i++) {
-          console.log(data.cast[i].name);
           var context = {
             actors : attori[i].name,
             image : "https://image.tmdb.org/t/p/w185" +  attori[i].profile_path,
