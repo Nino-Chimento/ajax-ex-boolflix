@@ -14,7 +14,7 @@ $(document).ready(function () {
   });
   $(document).on("click",".entry a",function () {
     var id = $(this).parents(".entry").attr("data");
-    var box = $(this);
+    $(".info").toggle().show();
     $.ajax({
       // https://api.themoviedb.org/3/search/tv
       url : "https://api.themoviedb.org/3/movie/"+id+"/credits",
@@ -42,6 +42,10 @@ $(document).ready(function () {
       }
     });
   })
+  $(".fa-times").click(function () {
+    $(".info").hide();
+    $(".info ul").remove();
+  });
 });
 // stampo le stelle
 function printVote(vote)  {
