@@ -13,7 +13,7 @@ $(document).ready(function () {
     }
   });
   $(document).on("click",".entry a",function () {
-    var id = $(this).attr("data");
+    var id = $(this).parents(".entry").attr("data");
     var box = $(this);
     $.ajax({
       // https://api.themoviedb.org/3/search/tv
@@ -24,16 +24,15 @@ $(document).ready(function () {
       },
       success : function (data) {
         var attori = data.cast
-        box.find("p").toggle();
-        box.find("ul").remove();
         for (var i = 0; i < 5; i++) {
           var source = $("#actors-template").html();
           var template = Handlebars.compile(source);
           var context = {
-            actors : data.cast[i].character,
+            actors : data.cast[i].name,
+            image : "https://image.tmdb.org/t/p/w185" +  data.cast[i].profile_path,
           }
           var html = template(context);
-          box.append(html)
+          $("body").append(html)
           console.log(data.cast[i].character);
         }
       },
