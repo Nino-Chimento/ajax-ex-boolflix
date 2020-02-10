@@ -15,6 +15,20 @@ $(document).ready(function () {
   $(document).on("click",".entry",function () {
     var id = $(this).attr("data");
     console.log(id);
+    $.ajax({
+      // https://api.themoviedb.org/3/search/tv
+      url : "https://api.themoviedb.org/3/movie/"+id+"/credits",
+      method : "GET",
+      data : {
+        api_key :"5ae01722ee057b2fdbbf926a615150da",
+      },
+      success : function (data) {
+        console.log(data);
+      },
+      error : function (request,state,error) {
+        alert("errore e"+error)
+      }
+    });
   })
 });
 // stampo le stelle
