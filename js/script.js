@@ -85,6 +85,7 @@ function stampaFilms(movies) {
     var source = $("#entry-template").html();
     var template = Handlebars.compile(source);
     var context = {
+      genere : movies[i].genre_ids,
       data :movies[i].id,
       title : movies[i].title,
       original_title :titolo,
