@@ -24,17 +24,18 @@ $(document).ready(function () {
       },
       success : function (data) {
         var attori = data.cast
-        for (var i = 0; i < 5; i++) {
-          var source = $("#actors-template").html();
-          var template = Handlebars.compile(source);
+        var source = $("#actors-template").html();
+        var template = Handlebars.compile(source);
+        for (var i = 0; i < attori.length; i++) {
+          console.log(data.cast[i].name);
           var context = {
-            actors : data.cast[i].name,
-            image : "https://image.tmdb.org/t/p/w185" +  data.cast[i].profile_path,
+            actors : attori[i].name,
+            image : "https://image.tmdb.org/t/p/w185" +  attori[i].profile_path,
           }
-          var html = template(context);
-          $("body").append(html)
-          console.log(data.cast[i].character);
         }
+        var html = template(context);
+        $("body").append(html)
+
       },
       error : function (request,state,error) {
         alert("errore e"+error)
