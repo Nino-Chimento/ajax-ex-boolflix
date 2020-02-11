@@ -88,6 +88,7 @@ $(document).ready(function () {
     $(".info ul").remove();
     $(".info p").remove();
   });
+  getStart()
 });
 // stampo le stelle
 function printVote(vote)  {
@@ -184,4 +185,26 @@ function confronta(a,b) {
     if (a.title > b.title) { return -1; }
     else { return 0; }
   }
+}
+// film iniziali
+function getStart() {
+  $.ajax({
+  url: "https://api.themoviedb.org/3/trending/all/day",
+  method: "GET",
+  data: {
+    api_key: '5ae01722ee057b2fdbbf926a615150da',
+    language: 'en-EN'
+  },
+  success: function (data, stato) {
+    var movies = data.results;
+    console.log(movies);
+    stampaFilms(movies);
+
+    $('.first').html('Trending today');
+    $('.second').html('');
+  },
+  error: function (richiesta, stato, errore) {
+    $('.movies').append("<li>È avvenuto un errore. " + errore + "</li>");
+  }
+  });
 }
