@@ -64,6 +64,7 @@ $(document).ready(function () {
     $(".info").hide();
     $(".info ul").remove();
     $(".info p").remove();
+    $(".info h2").remove();
   });
   getStart()
 });
