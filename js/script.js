@@ -13,7 +13,7 @@ $(document).ready(function () {
     });
   });
   $(".info").hide();
-  $("button").click(function () {
+  $(".fa-search").click(function () {
     search()
     $(".wrap-films").html("");
     $(".no-results").html("");

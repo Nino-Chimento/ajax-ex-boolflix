@@ -114,6 +114,9 @@ display: none;
   flex-wrap: wrap;
   justify-content: center;
 }
+.info h2,p{
+  width: 90%;
+}
 .info ul {
   list-style: none;
 }
