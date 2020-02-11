@@ -29,7 +29,6 @@ $(document).ready(function () {
     var id = $(this).parents(".entry").attr("data");
     var testo = $(this).siblings("p").text();
     var img = $(this).siblings(".copertina").html();
-    console.log(img);
     $(".info").toggle().show();
     $.ajax({
       url : "https://api.themoviedb.org/3/movie/"+id+"/credits",
@@ -43,6 +42,9 @@ $(document).ready(function () {
         var template = Handlebars.compile(source);
         for (var i = 0; i < attori.length; i++) {
           var image = "https://image.tmdb.org/t/p/w185" +  attori[i].profile_path;
+          if (attori[i].profile_path == null) {
+            image = "https://pngimage.net/wp-content/uploads/2018/06/no-cover-png-1.png";
+          }
           var context = {
             actors : attori[i].name,
             image : image,

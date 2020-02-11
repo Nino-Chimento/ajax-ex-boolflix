@@ -120,6 +120,10 @@ display: none;
   flex-wrap: wrap;
   justify-content: center;
 }
+.info img {
+  width: 200px;
+  height: 250px;
+}
 .info h2,p{
   width: 90%;
   margin: 10px;
