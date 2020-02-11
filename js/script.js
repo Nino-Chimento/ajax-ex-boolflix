@@ -41,9 +41,6 @@ $(document).ready(function () {
         var template = Handlebars.compile(source);
         for (var i = 0; i < attori.length; i++) {
           var image = "https://image.tmdb.org/t/p/w185" +  attori[i].profile_path;
-          if (attori[i].profile_path == null) {
-            image = img/no-cover.jpg
-          }
           var context = {
             actors : attori[i].name,
             image : image,
