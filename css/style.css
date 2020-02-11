@@ -27,6 +27,10 @@
   align-items: center;
   justify-content: space-around;
 }
+.fa-search {
+  color: white;
+  cursor: pointer;
+}
 select {
   margin-top: 100px;
 }
