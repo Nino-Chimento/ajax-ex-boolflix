@@ -28,6 +28,8 @@ $(document).ready(function () {
   $(document).on("click",".entry a",function () {
     var id = $(this).parents(".entry").attr("data");
     var testo = $(this).siblings("p").text();
+    var img = $(this).siblings(".copertina").html();
+    console.log(img);
     $(".info").toggle().show();
     $.ajax({
       url : "https://api.themoviedb.org/3/movie/"+id+"/credits",
@@ -51,6 +53,7 @@ $(document).ready(function () {
         var source = $("#descrizione-template").html();
         var template = Handlebars.compile(source);
         var context = {
+          image : img,
           overview : testo,
         }
         var html = template(context);

@@ -122,6 +122,7 @@ display: none;
 }
 .info h2,p{
   width: 90%;
+  margin: 10px;
 }
 .info ul {
   list-style: none;
