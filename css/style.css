@@ -10,6 +10,15 @@
   width: 100%;
   height: 100%;
 }
+.opacity {
+  position: absolute;
+  top :0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
 .copertina img {
   width: 100%;
   height: 100%;
@@ -97,12 +106,17 @@ select {
   background-color: red;
   justify-content: space-around;
 }
-.entry:hover .copertina {
+.entry:hover .copertina{
+  display: none;
+}
+.entry:hover .opacity{
   display: none;
 }
 .entry:hover{
   transform: scale(1.1);
   cursor: pointer;
+  transition: 2s;
+  z-index: 1;
 }
 .entry ul {
   list-style: none;
