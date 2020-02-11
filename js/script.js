@@ -1,27 +1,5 @@
 $(document).ready(function () {
-  $.ajax({
-    url : "https://api.themoviedb.org/3/genre/movie/list?language=en-US",
-    method : "GET",
-    data : {
-      api_key :"5ae01722ee057b2fdbbf926a615150da",
-    },
-    success : function (data) {
-      var genere = data.genres
-      var source = $("#genere-template").html();
-      var template = Handlebars.compile(source);
-      for (var i = 0; i < genere.length; i++) {
-        var context = {
-          id : genere[i].id,
-          name : genere[i].name
-        }
-        var html = template(context);
-        $("select").append(html)
-      }
-    },
-    error : function (request,state,error) {
-      alert("errore e"+error)
-    }
-  });
+  caricamentoGeneri()
   $("select").change(function () {
     var genere = $("select").val();
     $(".entry").each(function () {
@@ -52,7 +30,6 @@ $(document).ready(function () {
     var testo = $(this).siblings("p").text();
     $(".info").toggle().show();
     $.ajax({
-      // https://api.themoviedb.org/3/search/tv
       url : "https://api.themoviedb.org/3/movie/"+id+"/credits",
       method : "GET",
       data : {
@@ -206,5 +183,31 @@ function getStart() {
   error: function (richiesta, stato, errore) {
     $('.movies').append("<li>È avvenuto un errore. " + errore + "</li>");
   }
+  });
+}
+// caricamento generi
+function caricamentoGeneri() {
+  $.ajax({
+    url : "https://api.themoviedb.org/3/genre/movie/list?language=en-US",
+    method : "GET",
+    data : {
+      api_key :"5ae01722ee057b2fdbbf926a615150da",
+    },
+    success : function (data) {
+      var genere = data.genres
+      var source = $("#genere-template").html();
+      var template = Handlebars.compile(source);
+      for (var i = 0; i < genere.length; i++) {
+        var context = {
+          id : genere[i].id,
+          name : genere[i].name
+        }
+        var html = template(context);
+        $("select").append(html)
+      }
+    },
+    error : function (request,state,error) {
+      alert("errore e"+error)
+    }
   });
 }
