@@ -1,5 +1,36 @@
 $(document).ready(function () {
   caricamentoGeneri()
+  $.ajax({
+      url: "https://api.themoviedb.org/3/movie/upcoming",
+      method: "GET",
+      data : {
+        api_key :"5ae01722ee057b2fdbbf926a615150da",
+      },
+      success: function (data) {
+         var imgSlider = data.results;
+         var source = $("#img-slider-template").html();
+         var template = Handlebars.compile(source);
+         for (var i = 0; i < 9; i++) {
+           context = {
+             image : "https://image.tmdb.org/t/p/w1280" +  imgSlider[i].backdrop_path
+           }
+           var html = template(context);
+           $(".slider ul").append(html)
+         }
+      },
+      error: function (richiesta, stato, errori) {
+      alert("E' avvenuto un errore. " + errori);
+      }
+  });
+  setInterval(function () {
+    var active = $(".slider .active");
+    active.removeClass("active");
+    active.next().addClass("active");
+    if ($(".slider li").last().hasClass("active")) {
+      $(".slider li").last().removeClass("active")
+      $(".slider li").first().addClass("active");
+    }
+  }, 3000);
   $("select").change(function () {
     var genere = $("select").val();
     $(".entry").each(function () {

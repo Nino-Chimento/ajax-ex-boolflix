@@ -22,6 +22,12 @@
     </div>
     <select class="" name="">
     </select>
+    <div class="slider">
+      <ul>
+        <li class="active "></li>
+
+      </ul>
+    </div>
     <div class="wrap-films"></div>
     <script id="entry-template" type="text/x-handlebars-template">
       <div class="entry" data = "{{data}}" genere = "{{genere}}">
@@ -44,6 +50,12 @@
           <h4>{{actors}}</h4>
         </li>
       </ul>
+    </script>
+    <script id="img-slider-template" type="text/x-handlebars-template">
+      <li>
+        <img src={{image}} alt="">
+        <p>nino</p>
+      </li>
     </script>
     <script id="genere-template" type="text/x-handlebars-template">
       <option value="{{id}}">{{name}}</option>
