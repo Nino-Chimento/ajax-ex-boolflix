@@ -1,27 +1,6 @@
 $(document).ready(function () {
-  caricamentoGeneri()
-  $.ajax({
-      url: "https://api.themoviedb.org/3/movie/upcoming",
-      method: "GET",
-      data : {
-        api_key :"5ae01722ee057b2fdbbf926a615150da",
-      },
-      success: function (data) {
-         var imgSlider = data.results;
-         var source = $("#img-slider-template").html();
-         var template = Handlebars.compile(source);
-         for (var i = 0; i < 9; i++) {
-           context = {
-             image : "https://image.tmdb.org/t/p/w1280" +  imgSlider[i].backdrop_path
-           }
-           var html = template(context);
-           $(".slider ul").append(html)
-         }
-      },
-      error: function (richiesta, stato, errori) {
-      alert("E' avvenuto un errore. " + errori);
-      }
-  });
+  caricamentoGeneri();
+  caricamentoImgSlider();
   slider();
   $("select").change(function () {
     var genere = $("select").val();
@@ -250,4 +229,29 @@ function slider() {
       $(".slider li").first().addClass("active");
     }
   }, 3000);
+}
+// caricamento img slider
+function caricamentoImgSlider() {
+  $.ajax({
+      url: "https://api.themoviedb.org/3/movie/upcoming",
+      method: "GET",
+      data : {
+        api_key :"5ae01722ee057b2fdbbf926a615150da",
+      },
+      success: function (data) {
+         var imgSlider = data.results;
+         var source = $("#img-slider-template").html();
+         var template = Handlebars.compile(source);
+         for (var i = 0; i < 9; i++) {
+           context = {
+             image : "https://image.tmdb.org/t/p/w1280" +  imgSlider[i].backdrop_path
+           }
+           var html = template(context);
+           $(".slider ul").append(html);
+         }
+      },
+      error: function (richiesta, stato, errori) {
+      alert("E' avvenuto un errore. " + errori);
+      }
+  });
 }
