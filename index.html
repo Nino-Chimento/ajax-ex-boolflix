@@ -10,6 +10,7 @@
     <title>boolflix</title>
   </head>
   <body>
+    <!-- menu ricerca -->
     <div class="menu">
       <h2>BoolFlix</h2>
       <div class="ricerca">
@@ -19,21 +20,34 @@
         </select>
       </div>
     </div>
-    <div class="no-results"></div>
-    <div class="info">
-      <i class="fas fa-times"></i>
-    </div>
-    <div class="wrap-search">
-
-    </div>
-
+    <!-- // menu ricerca -->
+    <!--  slider -->
     <div class="slider">
       <ul>
         <li class="active "></li>
-
       </ul>
     </div>
+    <!--  slider -->
+    <!--  no risultati -->
+    <div class="no-results"></div>
+    <!-- // no risultati -->
+    <!-- menu info film -->
+    <div class="info">
+      <i class="fas fa-times"></i>
+    </div>
+    <!-- menu infi film -->
+    <!-- srap locandine -->
     <div class="wrap-films"></div>
+    <!-- // wrap locandine -->
+      <!-- /////////////////////////////// -->
+      <!-- TEMPLATE SLIDER -->
+      <script id="img-slider-template" type="text/x-handlebars-template">
+        <li>
+          <img src={{image}} alt="">
+        </li>
+      </script>
+      <!-- // template slider -->
+    <!-- template locandine films -->
     <script id="entry-template" type="text/x-handlebars-template">
       <div class="entry" data = "{{data}}" genere = "{{genere}}">
         <div class="opacity"></div>
@@ -46,9 +60,18 @@
         <p>{{overview}}</p>
       </div>
     </script>
+    <!--  // locandine films -->
+    <!-- template attributi locandine -->
+    <script id="genere-template" type="text/x-handlebars-template">
+      <option value="{{id}}">{{name}}</option>
+    </script>
+    <!-- // attributi locandine -->
+    <!--  template no risultati -->
     <script id="no-results-template" type="text/x-handlebars-template">
       <h2>{{films}}</h2>
     </script>
+    <!-- // no risultati -->
+    <!--  template foto attori -->
     <script id="actors-template" type="text/x-handlebars-template">
       <ul>
         <li>
@@ -57,19 +80,14 @@
         </li>
       </ul>
     </script>
-    <script id="img-slider-template" type="text/x-handlebars-template">
-      <li>
-        <img src={{image}} alt="">
-      </li>
-    </script>
-    <script id="genere-template" type="text/x-handlebars-template">
-      <option value="{{id}}">{{name}}</option>
-    </script>
+    <!-- // template foto attori -->
+    <!-- template menu info -->
     <script id="descrizione-template" type="text/x-handlebars-template">
       <h2>{{title}}</h2>
       {{{image}}}
       <p>{{overview}}</p>
     </script>
+    <!-- template menu info -->
     <script src="js/script.js" charset="utf-8"></script>
   </body>
   </html>

@@ -1,11 +1,15 @@
 $(document).ready(function () {
+  // caricamento generi e slider
   caricamentoGeneri();
   caricamentoImgSlider();
   slider();
+  getStart()
   $("select").change(function () {
     var genere = $("select").val();
     selezioneGenere(genere)
   });
+  // fine caricamento generi e sliders
+  //  ricerca films
   $(".info").hide();
   $(".fa-search").click(function () {
     search()
@@ -19,6 +23,8 @@ $(document).ready(function () {
       $(".no-results").html("");
     }
   });
+  //  fine ricerca films
+  // stampa info films
   $(document).on("click",".entry a",function () {
     var id = $(this).parents(".entry").attr("data");
     var testo = $(this).siblings("p").text();
@@ -69,8 +75,9 @@ $(document).ready(function () {
     $(".info h2").remove();
     $(".info img").remove();
   });
-  getStart()
+  // fine stampa info
 });
+// ///////////////////FUNZIONI/////////////////
 // stampo le stelle
 function printVote(vote)  {
    somma  ="";
@@ -116,6 +123,7 @@ function stampaFilms(movies) {
     $(".wrap-films").append(html);
   }
 }
+//  funzione ricerca
 function search() {
   ricerca = $("input").val();
   $("input").val("")
@@ -129,6 +137,7 @@ function search() {
   chiamataAjax(urlFilms,ricerca,films);
   chiamataAjax(urlTv,ricerca,tv)
 }
+// funzione chiamata ajax
 function chiamataAjax(url,query,genere) {
   $.ajax({
     // https://api.themoviedb.org/3/search/tv

@@ -7,6 +7,7 @@ body {
   font-family: 'Roboto', sans-serif;
   min-width: 600px;
   min-height: 600px;
+  background-color: #141414;
 }
 /* menu ricerca */
 input {
@@ -36,9 +37,6 @@ input:focus {
 .fa-search {
   color: white;
   cursor: pointer;
-}
-.wrap-search {
-  background-color: #081C24;
 }
 select {
   color: white;
