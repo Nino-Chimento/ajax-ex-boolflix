@@ -28,7 +28,15 @@ body {
 }
 input {
   border-radius: 10px;
-};
+  width: 0;
+  transition: 2s;
+}
+input:focus {
+  width: 100px;
+}
+.ricerca:hover input {
+  width: 100px;
+}
 .fa-search {
   cursor: pointer;
 }
@@ -52,7 +60,6 @@ input {
 select {
   color: white;
   background-color: #081C24;
-  height: 40px;
   width: 150px;
   border-radius: 10px;
 }
