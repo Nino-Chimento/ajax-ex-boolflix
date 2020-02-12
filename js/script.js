@@ -4,15 +4,7 @@ $(document).ready(function () {
   slider();
   $("select").change(function () {
     var genere = $("select").val();
-    $(".entry").each(function () {
-      var attributoGenere = $(this).attr("genere");
-      if (!attributoGenere.includes(genere)) {
-        $(this).hide();
-      }
-      else {
-        $(this).show();
-      }
-    });
+    selezioneGenere(genere)
   });
   $(".info").hide();
   $(".fa-search").click(function () {
@@ -253,5 +245,17 @@ function caricamentoImgSlider() {
       error: function (richiesta, stato, errori) {
       alert("E' avvenuto un errore. " + errori);
       }
+  });
+}
+//  selezione genere
+function selezioneGenere(genere) {
+  $(".entry").each(function () {
+    var attributoGenere = $(this).attr("genere");
+    if (!attributoGenere.includes(genere)) {
+      $(this).hide();
+    }
+    else {
+      $(this).show();
+    }
   });
 }
