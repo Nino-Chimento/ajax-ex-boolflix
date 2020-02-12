@@ -22,15 +22,7 @@ $(document).ready(function () {
       alert("E' avvenuto un errore. " + errori);
       }
   });
-  setInterval(function () {
-    var active = $(".slider .active");
-    active.removeClass("active");
-    active.next().addClass("active");
-    if ($(".slider li").last().hasClass("active")) {
-      $(".slider li").last().removeClass("active")
-      $(".slider li").first().addClass("active");
-    }
-  }, 3000);
+  slider();
   $("select").change(function () {
     var genere = $("select").val();
     $(".entry").each(function () {
@@ -246,4 +238,16 @@ function caricamentoGeneri() {
       alert("errore e"+error)
     }
   });
+}
+// slider
+function slider() {
+  setInterval(function () {
+    var active = $(".slider .active");
+    active.removeClass("active");
+    active.next().addClass("active");
+    if ($(".slider li").last().hasClass("active")) {
+      $(".slider li").last().removeClass("active")
+      $(".slider li").first().addClass("active");
+    }
+  }, 3000);
 }
