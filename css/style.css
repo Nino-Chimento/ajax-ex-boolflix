@@ -5,27 +5,10 @@
 }
 body {
   font-family: 'Roboto', sans-serif;
+  min-width: 600px;
+  min-height: 600px;
 }
-.copertina {
-  position: absolute;
-  top :0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-.opacity {
-  position: absolute;
-  top :0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 2;
-}
-.copertina img {
-  width: 100%;
-  height: 100%;
-}
+/* menu ricerca */
 input {
   border-radius: 10px;
   width: 0;
@@ -67,6 +50,8 @@ select {
   color: red;
   font-size: 1.9em;
 }
+/*  fine menu */
+/* slider */
 .slider {
   width: 100%;
   height: 450px;
@@ -90,33 +75,16 @@ select {
 .slider img {
   width: 100%;
 }
+/*  fine sliders */
+/* contenitore locandine */
 .wrap-films {
   display:flex;
   flex-wrap: wrap;
   background-color: #141414;
   justify-content: center;
 }
-
-.entry {
-  width: 15%;
-  height: 300px;
-  margin: 3px 0px;
-  background-color: black;
-  color: white;
-  text-align: center;
-  position: relative;
-  font-size: 0.7em;
-}
-.entry h1,h2,h3,h4 {
-  padding: 5px;
-}
- p {
-  overflow: hidden;
-  height: 25%;
-}
-.entry h3 img {
-  width: 40px;
-}
+/* fine contenitore locandien */
+/* menu no risultati */
 .no-results {
   width: 100%;
   position: fixed;
@@ -129,6 +97,50 @@ select {
   background-color: red;
   justify-content: space-around;
 }
+ /* fine no risultati */
+ /* locandine film */
+.copertina {
+  position: absolute;
+  top :0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.opacity {
+  position: absolute;
+  top :0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+.copertina img {
+  width: 100%;
+  height: 100%;
+}
+.entry {
+  width: 15%;
+  height: 300px;
+  margin: 3px 0px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  position: relative;
+  font-size: 0.7em;
+  overflow: hidden;
+}
+.entry h1,h2,h3,h4 {
+  padding: 5px;
+}
+p {
+  overflow: hidden;
+  height: 25%;
+}
+.entry h3 img {
+  width: 40px;
+}
+
 .entry:hover .copertina{
   display: none;
 }
@@ -163,8 +175,10 @@ select {
   background-color: lightblue;
 }
 .entry p {
-display: none;
+  display: none;
 }
+/* fine locandine film */
+/* menu info */
 .info {
   position: absolute;
   z-index: 6;
@@ -194,8 +208,8 @@ display: none;
   margin: 10px;
 }
 
- .fa-times {
-   color: grey;
+.fa-times {
+  color: grey;
   font-size: 1.8em;
   position: fixed;
   right: 120px;
@@ -203,3 +217,4 @@ display: none;
   margin: 5px;
   z-index: 5;
 }
+/* menu info */
